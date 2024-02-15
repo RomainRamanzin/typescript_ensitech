@@ -4,6 +4,9 @@ import { errorHandler } from "./middlewares/errorHandler";
 import logger from "./middlewares/logger";
 import { logResponse } from "./middlewares/logResponse";
 import { logRequest } from "./middlewares/logRequest";
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const app = express();
 
