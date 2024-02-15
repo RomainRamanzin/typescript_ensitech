@@ -14,9 +14,9 @@ const weatherController = new WeatherController(process.env.WEATHER_API_KEY || "
 
 const PORT: number = process.env.PORT ? parseInt(process.env.PORT) : 3000;
 
+app.use(errorHandler);
 app.use(logRequest);
 app.use(logResponse);
-app.use(errorHandler);
 
 // Route de test
 app.get("/test", (req: Request, res: Response) => {
@@ -28,8 +28,6 @@ app.get("/test", (req: Request, res: Response) => {
 app.get("/weather/:city", async (req: Request, res: Response, next: NextFunction) => {
     await weatherController.getWeatherByCity(req, res, next);
 });
-
-
 
 
 app.listen(PORT, () => {
